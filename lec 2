@@ -1,0 +1,56 @@
+/*
+notes
+
+&& logical_and
+|| logical_or
+!()
+unsigned int day, month, year
+
+if的格式：
+
+if(condition)
+{
+    statements1
+}
+else
+{
+    statements2
+}
+
+
+for的格式：
+
+for(expression1; condition; expression2)
+{
+    statements
+}
+
+while statement 和 do...while statement 的 difference？？
+*/
+
+
+/* code1: p31
+
+int main(){
+    for(int i = 0; i <10; i++)
+    {
+        printf("%d", i);
+    }
+    return 0;
+}
+
+*/
+
+
+/* code2: p33
+
+int main(){
+    int i = 0;
+    while(i<10){
+        printf("%d",i);
+        i++;
+    }
+    return 0;
+}
+*/
+
