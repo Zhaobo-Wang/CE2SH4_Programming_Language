@@ -1,0 +1,160 @@
+Functions: 函数 模块化 modules
+
+Function的三大板块：
+1）function call
+2）function defition （写function code的地方）
+3）function prototype （放在最前面的一行）
+
+Example 1: 创建一个函数 算 （x的平方+y的平方）/2
+
+double my_square(double x, double y);
+
+int main(void){
+    double a = 10.0, b =20.0, c;
+
+    c = my_square(a, b);
+
+    printf("c = %f \n", c);
+
+    return 0;
+
+}
+
+double my_square(double x, double y){
+
+    double z;
+
+    x = x*x;
+    y = y*y;
+    z = (x+y)/2.0;
+    return z;
+}
+
+
+
+
+
+
+# include <stdio.h>
+# include <stdlib.h>
+# include "abc.c"
+
+/* 
+int main(){
+ printf("%d", abc());
+}
+
+*/
+
+
+/*  return 5
+int sum(int x, int y){
+    int a,b;
+
+    a = 2;
+    b = 3;
+    return a+b;
+}
+
+int main(){
+    int a;
+    int b;
+    a = 1;
+    b = 2;
+
+    printValue(sum(a,b));
+
+    return 0;
+
+}
+
+
+void printValue(int a){
+
+    printf("%d", a);
+
+}
+
+*/
+
+
+/*
+int sum(int x, int y){
+    int a,b;
+
+    a = 2;
+    b = 3;
+    return x+y;
+}
+
+int main(){
+    int a;
+    int b;
+    a = 1;
+    b = 2;
+
+    printValue(sum(a,b));
+
+    return 0;
+
+}
+
+
+void printValue(int a){
+
+    printf("%d", a);
+
+}
+*/
+
+
+/*
+char[] printString(){
+
+}
+
+*/
+
+
+/* code:
+
+int sum(int x , int y)；
+void printValue(int a)；
+
+int main(){
+    int a,b;
+
+    a = 1;
+
+    b = 1;
+
+    for(int i = 0 ; i < 3; i++){
+
+        printValue(sum(a,b));
+
+    }
+
+    return 0;
+}
+
+int sum(int x , int y){
+
+    static int z =0;
+
+    //存储在一个内存之中
+    z++;
+
+    return x+y+z;
+
+}
+
+
+void printValue(int a){
+
+printf("%d", a);
+
+printf("\n");
+
+}
+
+*/
