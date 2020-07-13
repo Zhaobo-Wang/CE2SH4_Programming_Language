@@ -1,0 +1,20 @@
+/* Example:1
+Read 15 floating point numbers input by the user.
+Print them in reverse order (the last input number is printed first, etc.).
+
+#include <stdio.h>
+
+int main(void){
+    float a[4];
+    printf("Enter the 4 numbers: ");
+    for( int i = 0; i < 4; i ++){
+        scanf("%f", &a[i]);
+    }
+    for( int i = 3; i>=0; i--){
+        printf("%f\n",a[i]);
+    }
+
+    return 0;
+}
+
+*/
