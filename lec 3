@@ -1,0 +1,70 @@
+/* Code1 : p47
+Example 1: Read 10 integers input by the user and output their sum
+
+
+int main(){
+
+    int num;
+    int sum;
+
+    for(int i = 0; i<=10; i++)
+        {
+        printf("Enter 10 integers: ");
+        scanf("%d", &num);
+        sum += num;
+        }
+
+    printf("sum is %d", sum);
+
+    return 0;
+}
+
+*/
+
+/* Code 2: p57
+
+Quiz 1: Write a program that performs the following Read 10 integers
+input by the user and output the sum of the odd ones
+
+
+int main(){
+    int num;
+    int sum;
+
+    for (int i = 0; i < 10; i++){
+        printf("Enter 10 integer: ");
+        scanf("%d", &num);
+        if (num%2 != 0){
+            sum +=num;
+        }
+    }
+    printf("sum is %d", sum);
+
+    return 0;
+}
+
+*/
+
+/* Code 3: p61
+
+Example 3:Read integers input by the user until the first 1 and output their sum
+(the sum should not include the first 1)
+
+# include <stdio.h>
+int main(){
+    int num;
+    int sum;
+    do {
+        printf("Enter the integer: ");
+        scanf("%d", &num);
+        sum +=num;
+    }
+    while (num != 1);
+    sum = sum - 1;
+    printf("sum is %d", sum);
+
+    return 0;
+
+}
+
+*/
