@@ -1,0 +1,163 @@
+/* Notes:
+char
+int
+float
+double
+signed/unsigned
+
+unsigned types- only positive values
+
+signed types - positive and negative values
+
+primitive data types (smallest data type/atoms)
+
+complex - structure
+
+In C language, string is stored in a char array
+
+binary 1/0
+byte  8 digits 10000000
+represent 128 个数字
+
+
+*/
+
+/* code1: p 16
+
+
+int x = 'A'+'a';
+    int main(void){
+        char x1 = 'a'+3;
+        char x2 = x1 +1;
+        printf("%c%c\n\n",x1,x2);
+        return 0;
+    }
+
+*/
+
+/* code2
+int main(){
+    int i =0;
+    while(i ++ < 4){
+        if (i %2 ==0)
+            continue;
+        printf("%d\n",i);
+    }
+}
+
+*/
+
+
+/* code3
+int main(){
+    int i =0;
+    while(i ++ < 4){
+        if (i %2 ==0)
+            break;
+        printf("%d\n",i);
+    }
+}
+
+*/
+
+
+/* code4: break vs continue 第二页
+int main(){
+    int i = 3, j;
+    for(j = 1; j<= 5; j ++)
+    {
+        printf("*");
+    }
+    return 0;
+}
+*/
+
+
+/* code5: break vs continue 第二页
+int main(){
+    int i = 3,j;
+    for(j =1; j<=5; j++){
+        if(j == i)
+            break;
+        printf("*");
+    }
+    return 0;
+}
+
+// 如果到j == i 就停止
+// 所以会print 两个*
+*/
+
+/*
+//code6: break vs continue 第二页
+int main(){
+    int i = 3,j;
+    for(j =1; j<=5; j++){
+        if(j == i)
+            continue;
+        printf("*");
+    }
+    return 0;
+}
+// j == i 不会print，其余的继续print
+*/
+
+
+/* code7:
+
+int main(){
+    int i,j;
+    for( i =1; i <=5; i++)
+    {
+        for(j =1; j <=10; j++)
+        {
+            if(j == i)
+                break;
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+*/
+
+
+/* code 8:
+
+int main(){
+    int i,j;
+    for(i = 1; i <=5; i ++)
+    {
+        for(j = 1; j<= 10; j++)
+        {
+            if(j == i)
+                continue;
+            printf("*");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+*/
+
+
+/* code9: switch
+int main(){
+    char grade;
+    switch(grade)
+    {
+        case 'A':printf("85-100\n");
+            break;
+        case 'B':printf("50-84\n");
+            break;
+        default:printf("60-69\n");
+    }
+
+    return 0;
+}
+
+*/
+
+
+
+
+
