@@ -7,21 +7,28 @@ ________________________________________________________________________________
 
 Inputting Values from the user:
 
+# include <stdio.h>
+# include <stdlib.h>
+
 int main(){
-  
-  int n, i;
-  
-  printf("Please input the size of the array: \n");
-  scanf("%d", &n);
-  
-  int c[n];
-  
-  printf("Please input %d integers: \n", n);
-  for (i = 0; i < n; i++){
-    printf("%d\n", c[i]);
-  }
-  
-  return 0;
+    int n;
+    printf("Enter the size of the array:\n ");
+    scanf("%d", &n);
+
+    int c[n];
+
+    printf("Enter the elements %d in the array: ", n);
+
+    for (int i = 0 ; i < n; i++){
+        scanf("%d", &c[i]);
+    }
+
+    for (int i = 0; i < n; i++){
+        printf("The elements are %d. \n", c[i]);
+    }
+
+    return 0;
+
 }
 
 _________________________________________________________________________________________________________________________________________________________________________________________
