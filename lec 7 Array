@@ -1,0 +1,60 @@
+1) Array Definition:
+
+data_type  array_name   [array_size]
+举例：
+int c [5];
+________________________________________________________________________________________________________________________________________________________________________________________
+
+Inputting Values from the user:
+
+int main(){
+  
+  int n, i;
+  
+  printf("Please input the size of the array: \n");
+  scanf("%d", &n);
+  
+  int c[n];
+  
+  printf("Please input %d integers: \n", n);
+  for (i = 0; i < n; i++){
+    printf("%d\n", c[i]);
+  }
+  
+  return 0;
+}
+
+_________________________________________________________________________________________________________________________________________________________________________________________
+
+Function 中 不能返回整个array的值
+
+example: 把一个array reverse过来
+
+# include <stdio.h>
+void reverse(double x_array[], int n);
+
+int main(void){
+
+  double my_array[6] = {1.1,3.3,9.7,8.9,4.3,2.0};
+  int i;
+  
+  reverse(my_array, 6);
+  for(i = 0; i < 6; i++){
+    printf("a[%d] = %.1f \n" , i , my_array[i] );
+  return 0;
+  }
+}
+
+void reverse (double x_array[], int n){
+  int i ; double temp;
+  
+  for (i = 0; j = n-1; i<j; i++, j --){
+    temp = x[i];
+    x[i] = x[j];
+    x[j] = temp;
+    }
+ }
+ 
+__________________________________________________________________________________________________________________________________________________________________________________________
+  
+
