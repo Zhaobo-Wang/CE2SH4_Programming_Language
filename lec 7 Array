@@ -53,9 +53,9 @@ int main(void){
 }
 
 void reverse (double x_array[], int n){
-  int i ; double temp;
+  int i, j ; double temp;
   
-  for (i = 0; j = n-1; i<j; i++, j --){
+  for (i = 0, j = n-1; i<j; i++, j --){
     temp = x[i];
     x[i] = x[j];
     x[j] = temp;
