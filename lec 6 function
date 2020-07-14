@@ -1,0 +1,67 @@
+Function 的模块化
+
+Function 三个主要部分
+1） function call
+2)  function definition(包含function 主要 code的部分)
+3)  function prototype （function 写在最前面的一行 declaration）
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+Example: 计算 x的平方 加 y的平方
+
+
+# include <stdio.h>
+# include <stdlib.h>
+# include "abc.c"
+
+
+double my_square(double x, double y);
+
+int main(void){
+    double a = 10.0, b =20.0, c;
+
+    c = my_square(a, b);
+
+    printf("c = %f \n", c);
+
+    return 0;
+
+
+}
+
+double my_square(double x, double y){
+
+    double z;
+
+    x = x*x;
+    y = y*y;
+    z = (x+y)/2.0;
+    return z;
+}
+
+_______________________________________________________________________________________________________________________________________________________________________________________
+
+pass by reference 和 pass by value 的区别
+
+1）pass by reference: 当通过引用传递参数时，调用方和被调用方对参数使用相同的变量。如果被调用方修改了参数变量，则调用方的变量可以看到效果
+
+When a parameter is passed by reference, the caller and the callee use the same variable for the parameter. 
+If the callee modifies the parameter variable, the effect is visible to the caller's variable.
+
+2）pass by value: 当参数通过值传递时，调用者和被调用者有两个具有相同值的独立变量。如果被调用方修改了参数变量，则调用方不可见其效果
+
+When a parameter is passed by value, the caller and callee have two independent variables with the same value. 
+If the callee modifies the parameter variable, the effect is not visible to the caller
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+上面的example是一个pass by value的例子：
+
+x 得到 a 的值， x -> a， （x = a = 10）所以 x在function中进行运算后，x的值虽然变化 但是不会再继续影响a的值。（x = 100 / a = 10）
+y 得到 b 的值， y -> b， 同理b也是一样
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+
+
+
