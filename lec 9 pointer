@@ -7,15 +7,14 @@ user input 之后： a/b 的值会改变
 void userInput(double *a, double *b);
 
 int main(){
+    double a = 2;
+    double b = 3;
 
-double a = 2;
-double b = 3;
+    printf("a = %lf, b = %lf \n", a, b);
 
-printf("a = %lf, b = %lf\n", a, b);
+    userInput(&a, &b);
 
-userInput(&a, &b);
-
-printf("a = %lf, b = %lf\n", a, b);
+    printf("a = %lf, b = %lf \n", a, b);
 
 }
 
@@ -23,10 +22,9 @@ void userInput(double *a, double *b){
 
     printf("Enter 2 numbers: ");
 
-    scanf("%1f%1f", a, b);
+    scanf("%lf%lf", a, b);
 
 }
-
 
 ___________________________________________________________________________________________________________________________________________________________________________________________
 swap: a / b
