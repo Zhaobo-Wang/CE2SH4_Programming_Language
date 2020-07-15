@@ -27,3 +27,37 @@ int tmp = *a;
 *b = tmp;
 
 }
+_______________________________________________________________________________________________________________________________________________________________________________________________
+
+pointer：可以返回多个值
+
+# include <stdio.h>
+# include <stdlib.h>
+
+void calculator(double a, double b, double *sum, double *diff, double *div, double *product);
+
+int main(){
+
+double a = 2.0;
+
+double b = 3.0;
+
+double sum, diff, div, product;
+
+calculator(a,b,&sum, &diff, &div, &product);
+
+printf("a + b = %lf, a - b = %lf, a / b = %lf, a*b = %lf", sum, diff, div, product);
+
+}
+
+void calculator(double a, double b, double *sum, double *diff, double *div, double *product){
+
+*sum = a+b;
+
+*diff = a-b;
+
+*div = a/b;
+
+*product = a*b;
+
+}
