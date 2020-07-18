@@ -1,3 +1,26 @@
+
+重点： array 的名字 代表了 the address of its first element
+
+pointers：
+
+是一种特殊的data type
+
+以下这种写法是最基本的pointer 用法：
+
+# include <stdio.h>
+
+int main(){
+
+int a = 1;
+int *aPtr; //创建一个pointer
+aPtr = &a; //这个pointer截获a的内存地址
+*aPtr = 2; //用pointer来改变a的值
+
+printf("%d", a);
+
+return 0;
+}
+
 ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 user input 之后： a/b 的值会改变
 
@@ -12,13 +35,13 @@ int main(){
 
     printf("a = %lf, b = %lf \n", a, b);
 
-    userInput(&a, &b);
+    userInput(&a, &b);//function call 里面写地址 &a/&b
 
     printf("a = %lf, b = %lf \n", a, b);
 
 }
 
-void userInput(double *a, double *b){
+void userInput(double *a, double *b){//function parameter里面是数值 *a/*b
 
     printf("Enter 2 numbers: ");
 
