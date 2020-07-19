@@ -77,11 +77,11 @@ Example reverse a input string:
 
 int main(){
 
-    char x[20];
+    char x[20];    //define 一个char array
 
-    puts("Please enter the string: ");
+    puts("Please enter the string: ");    // puts(string)，在电脑屏幕里面打印出这句话
 
-    gets(x);
+    gets(x);      //gets(char array); 读取下一次user input line, 在最后自动会加‘\0’休止符
 
     printf("The string is %s \n", x);
 
