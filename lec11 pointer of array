@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    char* str[] = {"hello","world","chris"};
+
+    int a =4;
+    int* aptr = &a;
+    int** aaptr = &aptr;
+
+    printf("a = %d\n", **aaptr);
+
+    return 0;
+
+}
