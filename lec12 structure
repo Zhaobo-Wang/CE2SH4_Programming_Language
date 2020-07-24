@@ -1,0 +1,130 @@
+# include <stdio.h>
+# include <stdlib.h>
+
+struct Book{
+
+    int bookId;
+
+    char title[300];
+
+    char author[300];
+
+};
+
+//void bookInput(Book* book);
+
+//void printBook(Book book);
+
+int main(){
+
+struct Book JavaAndC = {1, "JavaAndC", "Chris"};
+
+struct Book CAndPHP = {1, "C and PHP", "Jimbo"};
+
+printf("The bookId is %d, \ntitle: %s, \nauthor: %s \n",JavaAndC.bookId, JavaAndC.title, JavaAndC.author);
+
+return 0;
+
+}
+
+_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+typedef: 直接知道name
+
+
+# include <stdio.h>
+# include <stdlib.h>
+
+struct book{
+
+    int bookId;
+
+    char title[300];
+
+    char author[300];
+
+};
+
+typedef struct book Book;
+
+//void bookInput(Book* book);
+
+//void printBook(Book book);
+
+int main(){
+
+Book JavaAndC = {1, "JavaAndC", "Chris"}; // Book 直接被认可
+
+Book CAndPHP = {1, "C and PHP", "Jimbo"};
+
+printf("The bookId is %d, \ntitle: %s, \nauthor: %s \n",JavaAndC.bookId, JavaAndC.title, JavaAndC.author);
+
+return 0;
+
+}
+
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <time.h>
+
+struct book{
+
+    int bookId;
+
+    char title[300];
+
+    char author[300];
+
+};
+
+typedef struct book Book;
+
+void bookInput(Book* book);
+
+void printBook(Book book);
+
+int main(){
+
+Book JavaAndC;
+
+Book* bookptr = &JavaAndC;//创建一个地址 《需要JavaAndC的地址》 修改里面的内容
+
+bookInput(bookptr);//
+
+printBook(JavaAndC);
+
+return 0;
+
+}
+//Book 在这里面已经变成了一个datatype
+void printBook(Book book){
+
+printf("The bookId is %d, \ntitle: %s, \nauthor: %s \n",book.bookId, book.title, book.author);
+
+}
+
+
+void bookInput(Book* book){
+
+printf("Welcome to the book inventory system: \n");
+
+printf("System load...");
+sleep(3);
+
+book -> bookId = rand() % 100; //pointer 上的箭头
+
+printf("Please enter the title of the book: \n");
+
+gets(book -> title);
+
+printf("Please enter the author of the book: \n");
+
+gets(book -> author);
+
+printf("System load...");
+sleep(3);
+
+}
