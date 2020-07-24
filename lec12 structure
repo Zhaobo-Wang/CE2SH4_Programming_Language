@@ -70,61 +70,58 @@ ________________________________________________________________________________
 # include <unistd.h>
 # include <time.h>
 
+
 struct book{
 
     int bookId;
 
-    char title[300];
+    char bookTitle[300];
 
     char author[300];
 
-};
+};//先建立一个struct（object）
 
-typedef struct book Book;
-
-void bookInput(Book* book);
-
-void printBook(Book book);
+typedef struct book Book;//define Book 变成了一种数据类型
 
 int main(){
 
 Book JavaAndC;
 
-Book* bookptr = &JavaAndC;//创建一个地址 《需要JavaAndC的地址》 修改里面的内容
+Book *JavaAndCptr = &JavaAndC; // 建立一个pointer指针 指向JavaAndC 可以完善（修改）里面的内容
 
-bookInput(bookptr);//
+inputBook(JavaAndCptr);//把pointer pass to function
 
 printBook(JavaAndC);
 
 return 0;
-
-}
-//Book 在这里面已经变成了一个datatype
-void printBook(Book book){
-
-printf("The bookId is %d, \ntitle: %s, \nauthor: %s \n",book.bookId, book.title, book.author);
-
 }
 
+void inputBook(Book *JavaAndCptr){ // 在这个pointer里面完善JavaAndC的内容
 
-void bookInput(Book* book){
+puts("Welcome to the library system!\n");
 
-printf("Welcome to the book inventory system: \n");
+puts("The system is loading...");
 
-printf("System load...");
-sleep(3);
+sleep(3);//延迟三秒
 
-book -> bookId = rand() % 100; //pointer 上的箭头
+JavaAndCptr -> bookId = rand() %100;//随意生成一个bookId
+//这里 用箭头 是因为JavaAndCptr 是一个pointer数据类型
+// 如果是普通类型的可以用.   book.bookId
 
-printf("Please enter the title of the book: \n");
+puts("Enter the title of the book:");
 
-gets(book -> title);
+gets(JavaAndCptr -> bookTitle);
 
-printf("Please enter the author of the book: \n");
+puts("Enter the author of the book:");
 
-gets(book -> author);
+gets(JavaAndCptr -> author);
 
-printf("System load...");
-sleep(3);
+puts("Thanks for the editting the system.");
+
+}
+
+void printBook(Book a){
+
+printf("The bookId is %d,\nTitle is %s,\nThe author is %s.\n", a.bookId, a.bookTitle, a.author);
 
 }
