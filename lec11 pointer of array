@@ -1,81 +1,58 @@
-#include <stdio.h>
-#include <stdlib.h>
+double pointer
 
-int main(){
-
-    char* str[] = {"hello","world","chris"};
-
-    int a =4;
-    int* aptr = &a;
-    int** aaptr = &aptr;
-
-    printf("a = %d\n", **aaptr);
-
-    return 0;
-
-}
-_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
 
-    char* str[] = {"hello","world","chris"};
-
     int a =4;
-    int* aptr = &a;
-    int** aaptr = &aptr;
+    int* aptr = &a; //先创建了一个pointer 指向 a
+    int** aaptr = &aptr;//又创建了一个pointer 指向 aptr
 
-    printf("the address of aptr is %p\n", &aptr);
+// 在内存中的关系为
+// aaptr -> aptr -> a
 
-    printf("the address of aaptr is %p\n", aaptr);
-    
-    //第三个第四个print的值一样
-
-    printf("the address of aptr is %p\n", aptr);
-
-    printf("the address of aaptr is %p\n", *aaptr);
+    printf("a = %d\n", **aaptr); // ** 代表 前进了两个箭头 -> 所以指向 a 里面的内容 即 a = 4
 
     return 0;
 
 }
 
-void swapStr(char** aaptr, char** bbptr){
-
-    char* temp = *aaptr;
-    *aaptr = *bbptr;
-    *bbptr = temp;
-}
 ___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+swap： 第一个单词和第二个单词
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
 
-    char* str[] = {"hello","world","chris"};
+    char* str[] = {"hello","world","chris"};//必须得是char* [] 建一个2d array 不然会报错
 
-    int a =4;
-    int* aptr = &a;
-    int** aaptr = &aptr;
+    printf("%s\n", str[0]); //指向hello
+   
+    char** a = &str[0];
+    char** b = &str[1];
+    swapStr(a, b);
+    
+    // 因为char* 已经是一个pointer了，所以直接&str[0] 相当于又一层pointer; 
+    // char** a -> char* str[0](hello) -> 每个字母
+    // char** b -> char* str[1](world) -> 每个字母
 
-    printf("%s\n", str[0]);
-
-    swapStr(&str[0], &str[1]);
-
-    printf("%s\n", str[0]);
+    printf("%s\n", str[0]);//指向world
 
     return 0;
 
 }
 
-void swapStr(char** aaptr, char** bbptr){
+void swapStr(char** a, char** b){
 
-    char* temp = *aaptr;
-    *aaptr = *bbptr;
-    *bbptr = temp;
-    
+    char* temp = *a; //换掉了hello和world
+    *a = *b;
+    *b = *a;
+
 }
 
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________
