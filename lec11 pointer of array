@@ -14,3 +14,101 @@ int main(){
     return 0;
 
 }
+_________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    char* str[] = {"hello","world","chris"};
+
+    int a =4;
+    int* aptr = &a;
+    int** aaptr = &aptr;
+
+    printf("the address of aptr is %p\n", &aptr);
+
+    printf("the address of aaptr is %p\n", aaptr);
+    
+    //第三个第四个print的值一样
+
+    printf("the address of aptr is %p\n", aptr);
+
+    printf("the address of aaptr is %p\n", *aaptr);
+
+    return 0;
+
+}
+
+void swapStr(char** aaptr, char** bbptr){
+
+    char* temp = *aaptr;
+    *aaptr = *bbptr;
+    *bbptr = temp;
+}
+___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    char* str[] = {"hello","world","chris"};
+
+    int a =4;
+    int* aptr = &a;
+    int** aaptr = &aptr;
+
+    printf("%s\n", str[0]);
+
+    swapStr(&str[0], &str[1]);
+
+    printf("%s\n", str[0]);
+
+    return 0;
+
+}
+
+void swapStr(char** aaptr, char** bbptr){
+
+    char* temp = *aaptr;
+    *aaptr = *bbptr;
+    *bbptr = temp;
+    
+}
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    int a = 1;
+    int b = 3;
+    int* aptr = &a;
+    int* bptr = &b;
+
+    int**aaptr = &aptr;
+    int**bbptr = &bptr;
+
+    printf("a = %d, b = %d \n", a, b);
+
+    swapInt(&aptr, &bptr);// &aptr = aaptr, &bptr = bbptr
+
+    printf("a = %d, b = %d \n", a, b);
+
+    return 0;
+
+}
+
+void swapInt(int **aaptr, int **bbptr){
+
+
+    int temp = **aaptr;
+    **aaptr = **bbptr;
+    **bbptr = temp;
+}
+____________________________________________________________________________________________________________________________________________________________________________________________
+
