@@ -1,0 +1,409 @@
+// 1) main function
+
+package lesson1;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		Car bmw = new Car();
+		
+		Car audi = new Car();
+		
+		bmw.brand = "bmw";
+		
+		bmw.price = 30000;
+		
+		bmw.year = "2020";
+		
+		audi.brand = "audi";
+		
+		audi.price = 20000;
+		
+		audi.year = "2020";
+		
+		System.out.println(bmw.printCar());
+		System.out.println(audi.printCar());
+		
+	}
+
+}
+
+_________________________________________________________________________________________________________________________________________________________________
+
+// 1) 一个class
+
+package lesson1;
+
+public class Car {
+	
+	public String brand;//attribute,behaviour
+	
+	public String year;
+	
+	public int price;
+	
+	
+	public String printCar() {
+		
+		return "Car [brand = "+ brand + ", year = "+ year + ", price = "+ price + "]";
+		
+	}
+	
+	
+
+}
+// one class many objects 
+
+_________________________________________________________________________________________________________________________________________________________________
+
+// 2) main
+
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person person1 = new person();
+		
+		person1.name = "chris";
+		
+		person1.sayHello();
+
+	}
+
+}
+
+_________________________________________________________________________________________________________________________________________________________________
+// 2)
+package lesson2;
+
+public class person {
+	
+	int age;
+	
+	String name;
+	
+	public void sayHello() {
+		
+		System.out.println(name + " say hello to you.");
+	}
+
+}
+
+__________________________________________________________________________________________________________________________________________________________________
+
+// 3) default constructor
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person person1 = new person();
+		
+		person person2 = new person();
+		
+		person1.printPerson();
+		
+		person2.printPerson();
+
+	}
+
+}
+
+________________________________________________________________________________________________________________________________________________________________
+
+//3) default constructor
+package lesson2;
+
+public class person {
+	
+	int age;
+	
+	String name;
+	
+	String gender;
+	
+	public person() {
+		
+		age = 20;
+		
+		name = "Chris";
+		
+		gender = "Male";
+		
+	}//default constructor，constructor名字必须和class名字一样
+  
+  // constructor 没有return type
+	
+	public void printPerson() {
+		
+		System.out.println("name: "+ name +"\nage: "+age+"\ngender: "+gender);
+	}
+	
+}
+
+___________________________________________________________________________________________________________________________________________________________________
+//4) overloaded constructor
+
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person person1 = new person(12,"bob","male");
+		
+		person1.printPerson();
+		
+	}
+
+}
+_________________________________________________________________________________________________________________________________________________________________
+//4) overloaded constructor
+
+package lesson2;
+
+public class person {
+	
+	private int age; //private 只在当前 class 可见，public 对整个 folder里面都 可见
+	
+	private String name;
+	
+	private String gender;
+	
+	public person(int age, String name, String gender) {
+		
+		this.age = age;//this. 调用当前class里的东西
+		this.name = name;
+		this.gender = gender;
+		
+	}//overloaded constructor
+	
+	public void printPerson() {
+		
+		System.out.println("name: "+ name +"\nage: "+age+"\ngender: "+gender);
+	}
+	
+}
+
+//constructor 只能是 public
+____________________________________________________________________________________________________________________________________________________
+//5) getter/setter
+
+package lesson2;
+
+public class person {
+	
+	private int age;
+	
+	private String name;
+	
+	private String gender;
+	
+	public person(int age, String name, String gender) {
+		
+		this.age = age;
+		this.name = name;
+		this.gender = gender;
+		
+	}//overloaded constructor 创建一个新的person
+	
+	//getters / setters 修改它的值,为外部提供可见度
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public void printPerson() {
+		
+		System.out.println("name: "+ name +"\nage: "+age+"\ngender: "+gender);
+	}
+	
+}
+____________________________________________________________________________________________________________________________________________________________________
+//5) getter/setter
+
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person person1 = new person(12,"bob","male");
+		
+		person person2 = new person();
+		
+		person1.printPerson();
+		
+		person2.setAge(30);
+		
+		System.out.println("ken is "+ person2.getAge()+" years old.");
+		
+	}
+
+}
+
+________________________________________________________________________________________________________________________________________________________________________
+6）
+
+package lesson2;
+
+public class person {
+	
+	//attribute
+	private int age;
+	
+	private String name;
+	
+	private String gender;
+	
+	public person() {
+		
+	}//default constructor 
+	
+	public person(int age, String name, String gender) {
+		
+		this.age = age;
+		this.name = name;
+		this.gender = gender;
+		
+	}//overloaded constructor
+	
+	//getters / setters 
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		
+		if (age < 0) {
+			
+			System.out.println("error !!");
+			
+			return;
+		}
+		this.age = age;
+	}// setter,可以确定一个取值范围
+	
+	//method
+	public void printPerson() {
+		
+		System.out.println("name: "+ name +"\nage: "+age+"\ngender: "+gender);
+	}
+	
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+6）
+
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person bob = new person();
+		
+		person ken = new person();
+		
+		bob.setAge(20);
+		
+		System.out.println(bob.getAge());
+		
+		ken.setAge(-5);
+		
+	}
+
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+7)
+
+package lesson2;
+
+public class person {
+	
+	//attribute
+	private int age;
+	
+	private String name;
+	
+	private String gender;
+	
+	public person() {
+		
+	}//default constructor 
+	
+	public person(int age, String name, String gender) {
+		
+		this.age = age;
+		this.name = name;
+		this.gender = gender;
+		
+	}//overloaded constructor
+	
+	//getters / setters 
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		
+		if (age < 0) {
+			
+			System.out.println("error !!");
+			
+			return;
+		}
+		this.age = age;
+	}// setter
+	
+	//method
+	public void printInfo() {
+		
+		System.out.println(age);
+		
+	}
+	
+	public void printInfo(int age) {
+		
+		System.out.println("class's private "+this.age + "   parameter " +age );
+	}//overloaded method,只有括号里的parameter可以改变，增加parameter 或者 改变type
+	
+}
+
+___________________________________________________________________________________________________________________________________________________________________
+
+7)
+package lesson2;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		person person1 = new person();
+		
+		person1.setAge(20);
+		
+		person1.printInfo();
+		
+		person1.printInfo(30);
+		
+	}
+
+}
+_____________________________________________________________________________________________________________________________________________________________________________
+
+
