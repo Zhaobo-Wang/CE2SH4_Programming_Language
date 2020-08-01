@@ -1,0 +1,116 @@
+static 的优先级特别高
+finalize（） 被JAVA 后台的 garbage collector 运行掉
+
+package lesson3;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		student[] students = new student[3];
+		
+		for(int i = 0; i < students.length; i++) {
+			
+			students[i] = new student();
+			
+		}
+		
+
+	}
+
+}
+
+_____________________________________________________________________________________________________
+
+2)
+
+package lesson3;
+
+public class student {
+	
+	public String name;
+	
+	public int number;
+	
+	public Laptop laptop;
+	
+	public student() {
+		
+		laptop = new Laptop();// construct real Laptop
+		
+	}
+
+	public student(String name, int number) {
+    laptop = new Laptop();
+		this.name = name;
+		this.number = number;
+	}
+	
+	public void printStudent() {
+		
+		System.out.println(name + " has a "+ laptop.name +", and it worth $ "+laptop.price);
+	}
+	
+
+}
+
+__________________________________________________________________________
+
+2) 
+
+package lesson3;
+
+public class Laptop {
+
+	public int price;
+	
+	public String name;
+		
+}
+
+__________________________________________________
+
+2)
+
+package lesson3;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		student s1 = new student();
+		
+		s1.name = "Chris";
+		s1.laptop.price = 500;
+		s1.laptop.name = "Mac";
+		
+		s1.printStudent();
+		
+	}
+
+}
+_______________________________________________________________________________________
+
+3) 
+
+		if(s1 instanceof student) {
+			
+			System.out.println("s1 is a student");
+		}
+    
+    看到object是什么属于class
+    
+________________________________________________________________________________________________________
+
+4)
+  String str1 = "abc";
+  String str2 = "abc";
+
+  if(str1.equals(str2)){
+  
+    system.out.println("They are the same.");
+  }
+    
+    
