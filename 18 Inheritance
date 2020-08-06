@@ -1,0 +1,385 @@
+编程四大定义：
+
+1）Inheritance:程序的可继承性
+2）Encapsulation：程序的可见度（public/private）
+3）Polymorphism：程序的多种形态
+4）Abstraction：写method 抽象化，可能行更高
+
+_____________________________________
+1)
+package lesson5;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		admin admin1 = new admin(1,"Chris","123", 100);
+		
+		user user1 = new user("Jimbo",0,"123");
+		
+		System.out.println(admin1.toString());
+		
+		System.out.println(user1.toString());
+		
+	}
+
+}
+
+____________________________________________
+
+1)
+package lesson5;
+
+public class user {
+	
+	private String username;
+	
+	private int id;
+	
+	private String password;
+	
+	public user() {
+		
+	}
+
+	public user(String username, int id, String password) {
+		this();
+		this.username = username;
+		this.id = id;
+		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "user [username=" + username + ", id=" + id + ", password=" + password + "]";
+	}
+	
+}
+
+_________________________________________________
+
+1)
+package lesson5;
+//sub class
+public class admin extends user {
+	
+	private int adminId;
+	
+	public admin(){
+		
+	}
+
+	public admin(int id, String username, String password, int adminId) {
+		
+		super(username, id, password);
+		this.adminId = adminId;
+		
+		// this.
+		// this();
+		// super.
+		// super();
+	}
+
+	public int getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+ "admin [adminId=" + adminId + "]";
+	}
+
+}
+__________________________________________________________________________
+
+//override: 可以在两个class里面 打出相同的method(parameter/return type 必须保持一直)，但是method里面做的事情不同
+
+2）
+package lesson5;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		admin admin1 = new admin(1,"Chris","123", 100);
+		
+		user user1 = new user("Jimbo",0,"123");
+		
+		user1.showId();
+		
+		admin1.showId();
+		
+	}
+
+}
+
+——————————————————————————————————————————————————————————————————————————————————————————————————
+2）
+package lesson5;
+//sub class
+public class admin extends user {
+	
+	private int adminId;
+	
+	public admin(){
+		
+	}
+
+	public admin(int id, String username, String password, int adminId) {
+		
+		super(username, id, password);
+		this.adminId = adminId;
+		
+		// this.
+		// this();
+		// super.
+		// super();
+	}
+
+	public int getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
+	}
+	
+	public void showId() {
+		
+		System.out.println(adminId);
+		
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()+ "admin [adminId=" + adminId + "]";
+	}
+
+}
+——————————————————————————————————————————————————————————————————————————————————
+
+2）
+package lesson5;
+public class user {
+	
+	private String username;
+	
+	private int id;
+	
+	private String password;
+	
+	public user() {
+		
+	}
+  
+	public user(String username, int id, String password) {
+		this();
+		this.username = username;
+		this.id = id;
+		this.password = password;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void showId() {
+		
+		System.out.println(this.id);
+		
+	}
+
+	@Override
+	public String toString() {
+		return "user [username=" + username + ", id=" + id + ", password=" + password + "]";
+	}
+	
+}
+——————————————————————————————————————————————————————————————————————————————————————————
+
+3） override的例子
+
+package lesson5;
+
+public class App {
+	
+	public static void main(String[] args) {
+		
+		Circle c = new Circle(2);
+		
+		Square s = new Square(1,2);
+		
+		c.calculate(1, 3);
+		
+		s.calculate(2, 4);
+	}
+
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————
+3）
+package lesson5;
+
+public class Shape {
+	
+	private int x;
+	
+	private int y;
+	
+	public Shape(){
+		
+	}
+
+	public Shape(int x, int y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	
+	public void calculate(int x, int y) {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Shape [x=" + x + ", y=" + y + "]";
+	}
+	
+}
+————————————————————————————————————————————————————————————————————————————————
+3）
+
+package lesson5;
+
+public class Circle extends Shape {
+	
+	private int r;
+	
+	public Circle() {
+		
+	}
+
+	public Circle(int r) {
+		super();
+		this.r = r;
+	}
+
+	public int getR() {
+		return r;
+	}
+
+	public void setR(int r) {
+		this.r = r;
+	}
+
+	@Override
+	public String toString() {
+		return "Circle [r=" + r + "]";
+	}
+	
+	public void calculate(int x, int y) {
+		
+		System.out.println("The result is "+ Math.pow(r, 2)*y);
+	}
+
+}
+
+————————————————————————————————————————————————————————————————————————
+
+3）
+
+package lesson5;
+
+public class Square extends Shape {
+
+		public Square() {
+			
+		}
+		public Square(int x, int y) {
+			
+			super(x,y);
+		}
+		
+		public String toString() {
+			
+			return "Square [x = " + super.getX() +"y = "+ super.getY()+"]";
+			
+		}
+		
+		
+		public void calculate(int x, int y) {
+			System.out.println("The result of suqare is + " + x*y);
+		}
+}
+——————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+
+
+
+
+
