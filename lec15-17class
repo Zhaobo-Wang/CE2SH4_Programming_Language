@@ -1,3 +1,17 @@
+1）封装（encapsulattion）
+
+private
+
+getter/setter
+
+————————————————————————————————————————————————————————————————————————————
+2）继承（heritage）
+
+extends
+
+super/this
+
+——————————————————————————————————————————————————————————————————————————————
 static 的优先级特别高
 finalize（） 被JAVA 后台的 garbage collector 运行掉
 
