@@ -1,0 +1,194 @@
+目录：
+
+一）继承 inheritance
+二）override与overload的区别
+三）多态：Polymorphism
+四）Instanceof 关键字
+
+
+
+
+
+
+
+
+
+JAVA四大定义：
+
+1）Inheritance:程序的可继承性
+2）Encapsulation：程序的可见度（public/private）
+3）Polymorphism：程序的多种形态
+4）Abstraction：写method 抽象化，可能行更高
+
+一）继承 inheritance
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+extends:
+子类 extends 父类
+subclass extends superclass
+
+继承是class之间的一种关系，除此之外class之间的关系还有依赖，组合，聚合
+
+super();
+指向superclass（父类）
+
+this();
+指向本class
+
+
+二·）override与overload的区别：
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+重写（override）：
+****需要有继承关系才能够重写,子类重写父类的方法！****
+1. method的名字必须相同
+2. 参数parameter必须完全相同
+3. 修饰符：范围可以扩大     public > protected > default > private
+例：如果父类是private，子类只能比它大
+4. 抛出的异常：范围，可以被缩小，但不能扩大
+
+static 属于 class /final 这几个都不能override
+
+为什么需要重写：
+1.父类的功能，子类不一定需要，或者不一定满足！
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+public class Father {
+
+    public static void main(String[] args) {
+
+        Son s = new Son();
+        s.sayHello();
+    }
+
+    public void sayHello() {
+        System.out.println("Hello");
+    }
+}
+
+class Son extends Father{
+
+    @Override
+    public void sayHello() {
+        System.out.println("hello by ");
+    }
+
+}
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+重载（overload）：
+1.需要在同一个class里面进行
+2.在一个class里面如果method name相同，parameter的个数/type/甚至是顺序不同的情况下即位overload
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+public class Father {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Father s = new Father();
+        s.sayHello();
+        s.sayHello("wintershii");
+
+    }
+
+    public void sayHello() {
+        System.out.println("Hello");
+    }
+
+    public void sayHello(String name) {
+        System.out.println("Hello" + " " + name);
+    }
+}
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+面试时，问：重载（Overload）和重写（Override）的区别？
+
+    答：方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。
+    重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载；
+    重写发生在子类与父类之间，重写要求子类被重写方法与父类被重写方法有相同的参数列表，有兼容的返回类型，
+    比父类被重写方法更好访问，不能比父类被重写方法声明更多的异常（里氏代换原则）。重载对返回类型没有特殊的要求，
+    不能根据返回类型进行区分。
+    
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+三）多态：Polymorphism
+
+动态编译：可扩展性变得更强
+
+多态注意事项：
+1.多态是method的多态，attribute没有多态
+2.多态的格式：
+
+父类 name = new 子类（）；
+
+name.只能调用父类里面有的method（）；
+
+如果不是override，直接run父类里面的method结果
+
+如果是override，run子类里面method的结果
+
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+public class Application {
+    public static void main(String[] args) {
+        People p=new Stu();
+        p.eat();
+        //run的结果为 *****吃水煮肉片******，因为eat override之后调用的是子类的method
+        
+    }
+}
+class People{
+    public void eat(){
+        System.out.println("吃饭");
+    }
+}
+class Stu extends People{
+    @Override
+    public void eat(){
+        System.out.println("吃水煮肉片");
+    }
+    public void study(){
+        System.out.println("好好学习");
+    }
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+四.）Instanceof 关键字
+
+可以判断两个class里面是否有父子关系
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+package demo1;
+
+public class Application {
+    public static void main(String[] args) {
+
+        Object a = new Student1();
+        //Object>String
+        //Object>Person1>Teacher1
+        //Object>Person1>Student1
+
+        System.out.println(a instanceof Student1);//true
+        System.out.println(a instanceof Person1);//true
+        System.out.println(a instanceof Object);//true
+        System.out.println(a instanceof Teacher1);//false
+        System.out.println(a instanceof String);//false
+        
+    }
+
+}
+
+class Person1{
+}
+
+class Student1 extends Person1{
+}
+
+class Teacher1 extends Person1{
+}
+
+__________________________________________________________________________________________________________________________________________________
+
+
+
