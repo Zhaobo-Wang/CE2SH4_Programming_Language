@@ -1,0 +1,17 @@
+
+main function：psvm
+
+sout
+
+ctrl+y：删除一行
+
+alt+insert：自动生成 constructor/getter/setter/to string 这些
+
+alt+(左/右)箭头：切换到旁边的代码
+
+ctrl+shift+F10：run
+
+ctrl+shift+/：多行注释
+
+alt+enter：new object
+
