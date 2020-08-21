@@ -254,5 +254,33 @@ final int a = 2；
 
 抽象abstract class 图片理解在 abstract 文档里面
 
+abstract class > class > object
+
+1. abstract class 无法 直接 create object 因为 跨级 了，所以是用来被子类继承的
+2. class 和 class 之间的共同特征，将共同特征提取出来，形成的就是抽象class
+3. 抽象类属于引用数据类型
+4. 修饰符不能为final（final/abstract 不能联合使用）
+5. abstract class 包含constructor，constructor可以给子类使用
+——————————————————————————————————————————————————————————————————————————————————————————————
+语法： 
+[修饰符列表] abstract class Name{
+    body；
+}
+ 
+class CreditAccount extends Name{
+}
+——————————————————————————————————————————————————————————————————————————————————————————————
+6. abstract class 关联到一个概念：
+
+abstract method：不是正常的格式，以分号结尾
+
+前面修饰符列表中有abstract关键字
+
+abstract method 必须出现在 abstract class 中
+——————————————————————————————————————————————————————————————————————————————————————————————
+例：
+public abstract void doSome（）；
+
+
 
 
