@@ -5,8 +5,8 @@
 三）多态：Polymorphism
 四）Instanceof 关键字
 五）final 关键字
-六）抽象类 abstract
-
+六）抽象类 abstract class
+七）接口 Interface
 
 
 
@@ -36,7 +36,6 @@ super();
 
 this();
 指向本class
-
 
 
 ********************************************************************************************************************************************************************************
@@ -264,7 +263,7 @@ abstract class > class > object
 ——————————————————————————————————————————————————————————————————————————————————————————————
 语法： 
 [修饰符列表] abstract class Name{
-    body；
+    body；（constructor）
 }
  
 class CreditAccount extends Name{
@@ -279,7 +278,91 @@ abstract method：不是正常的格式，以分号结尾
 abstract method 必须出现在 abstract class 中
 ——————————————————————————————————————————————————————————————————————————————————————————————
 例：
-public abstract void doSome（）；
+
+public class AbstractTest02{
+    public static void main(String[] args){
+    
+        Animal a = new Bird(); // Bird () class 可以create object， 父类指向子类 形成多态
+        //这就是面向抽象编程
+   }
+}
+
+abstract class Animal{
+    public abstract void move（）；//abstract method
+}
+class Bird extends Animal{
+    public void move(){
+    //*******继承后要override该method******（因为regular class 不能直接继承 abstract method）
+    }
+}
+
+*********************************************************************************************************************************************************************************
+
+七）接口 Interface
+
+1. 接口是完全抽象，是特殊的抽象类
+2. 接口支持多继承， 一个接口可以继承多个接口
+3. 接口中只包含两个部分内容；****一部分是常量，一部分是：abstract method******
+4. 接口中所有东西都是public， 但是public abstract可以省略
+5. interface 和 class 之间 用 implements 但是和之前的继承（extends）没啥区别（不要忘记override abstract method）
+
+[修饰符列表] interface name{}
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+interface A{
+}
+
+interface B{
+}
+
+interface C extends A, B{
+}
+
+interface MyMath{
+
+    public static final double PI = 3.1415926;
+    //接口中的常量，可以省略public static final
+
+    public abstract int sum(int a, int b);
+    //接口中的abstract method，可以省略public abstract
+
+}
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+public class Test01 {
+    public static void main(String[] args) {
+
+        MyMath m1 = new MyMathIp();
+        // ********可以 多态   满足条件  父类 = new 子类（）；**********
+        // 运行时 因为override 其实找子类里面的method 
+        
+        int result1 = m1.sum(10,20);
+        System.out.println(result1);
+
+    }
+}
+
+interface MyMath{
+    double PI = 3.1415926;
+
+    int sum(int a, int b);
+    int sub(int a, int b);
+
+}
+
+class MyMathIp implements MyMath{
+    @Override
+    public int sum(int a, int b) {
+        return a + b;
+    }
+    //***当class implements interface的时候，必须将所有的abstract method 全部override
+
+    @Override
+    public int sub(int a, int b) {
+        return a - b;
+    }
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 
 
