@@ -131,6 +131,7 @@ public class test01 {
         String s4 = new String("Test1");// 相当于  s4 = "Test1";
 
         System.out.println(s3 == s4); // false
+	System.out.println(s3.equals(s4));//true
         //new 两次，两个object内存地址，s3保存的内存地址和s4保存的内存地址不同。
         // == 判断的是内存地址。不是内容。
     }
