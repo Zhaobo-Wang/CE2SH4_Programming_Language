@@ -19,3 +19,6 @@ public class OverloadTest {
     }
 }
 
+//运行结果：
+//Hello
+//Hello，我是jimbo
