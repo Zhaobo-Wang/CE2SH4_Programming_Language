@@ -1,1 +1,25 @@
+目录：
 
+一）继承 inheritance
+二）override与overload的区别
+三）多态：Polymorphism
+四）Instanceof 关键字
+五）final 关键字
+六）抽象类 abstract class
+七）接口 Interface
+八）class 和class 之间的连动
+九）接口在开发中的作用
+十）is a/ has a/ like a
+十一）接口和抽象类的区别
+十二）scanner的code
+十三）object class中常用的method
+
+
+
+
+JAVA四大定义：
+
+1）Inheritance:程序的可继承性
+2）Encapsulation：程序的可见度（public/private）
+3）Polymorphism：程序的多种形态
+4）Abstraction：写method 抽象化，可能行更高
