@@ -117,6 +117,30 @@ public class App {
 	
 }
 
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+package demo3;
+
+import java.util.Scanner;
+
+public class test01 {
+
+    public static void main(String[] args) {
+
+        String s3 = new String("Test1"); // 相当于 s3 = "Test1";
+        String s4 = new String("Test1");// 相当于  s4 = "Test1";
+
+        System.out.println(s3 == s4); // false
+        //new 两次，两个object内存地址，s3保存的内存地址和s4保存的内存地址不同。
+        // == 判断的是内存地址。不是内容。
+    }
+}
+
+
+
+
+
+
 
 
 
