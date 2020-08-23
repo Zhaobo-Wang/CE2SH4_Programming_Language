@@ -1,0 +1,2 @@
+1.需要在同一个class里面进行
+2.在一个class里面如果method name相同，parameter的个数/type/甚至是顺序不同的情况下即位overload
