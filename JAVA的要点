@@ -162,6 +162,8 @@ class Stu extends People{
 
 可以判断两个class里面是否有父子关系
 
+通常 if （...instanceof..）
+
 ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 package demo1;
@@ -364,6 +366,54 @@ class MyMathIp implements MyMath{
 
 ————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+***一个class 可以implements 多个 interface**********
+接口中的多继承，弥补class之间的单继承的缺陷
 
+public class Test01 {
+    public static void main(String[] args) {
+
+        X x = new D();
+        Y y = new D();
+        x.m1();
+        y.m2();
+    }
+}
+
+interface X{
+    void m1();
+}
+
+interface Y{
+    void m2();
+}
+
+class D implments X,Y{
+    public void m1(){
+    }
+    
+    public void m2(){
+    }
+    
+}
+________________________________________________________________________________________________________________________________________________________
+
+如果 extends 和 implements 同时存在
+
+// 动物类：父类
+class Animal{
+}
+//可飞翔的接口（是一对翅膀）
+interface  Flyable{
+    void fly();
+}
+//动物类：子类
+// Flyable 是一个接口，是一对翅膀的接口，通过接口插到猫身上，让猫可以飞翔
+//先写extends 再写implements
+class Cat extends Animal implements Flyable{
+    @Override
+    public void fly() {
+        
+    }
+}
 
 
