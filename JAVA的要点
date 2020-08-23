@@ -7,6 +7,8 @@
 五）final 关键字
 六）抽象类 abstract class
 七）接口 Interface
+八）class 和class 之间的连动
+九）接口在开发中的作用
 
 
 
@@ -415,5 +417,180 @@ class Cat extends Animal implements Flyable{
         
     }
 }
+
+*************************************************************************************************************************************************************************************
+
+8）
+如何实现两个class之间的连动？
+Myself has a friend:
+//当出现“has a”的时候我们需要把 后面的当成一个attribute
+_________________________________________________________________________________________________________________________________________________________
+public class Friends {                                                     //****创建一个friend，包括friends常用的属性
+    private String name;
+    private int age;
+    private String habit;
+
+    public Friends(){
+    }
+    public Friends(String name, int age, String habit) {
+        this.name = name;
+        this.age = age;
+        this.habit = habit;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getHabit() {
+        return habit;
+    }
+
+    public void setHabit(String habit) {
+        this.habit = habit;
+    }
+
+    @Override
+    public String toString() {
+        return "Friends{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", habit='" + habit + '\'' +
+                '}';
+    }
+}
+________________________________________________________________________________________________________________________________________________________________________
+
+public class Myself {                                               //*****创建自己（class），包含一些常用的属性
+    private String name;
+    private int age;
+    private Friends friends;                                        //*****把friend当成一个attribute
+
+    public Myself() {
+    }
+
+    public Myself(String name, int age, Friends friends) {
+        this.name = name;
+        this.age = age;
+        this.friends = friends;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Friends getFriends() {
+        return friends;
+    }
+
+    public void setFriends(Friends friends) {
+        this.friends = friends;
+    }
+
+    @Override
+    public String toString() {
+        return "Myself{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", friends=" + friends +
+                '}';
+    }
+}
+——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+public class Application {                                               
+    public static void main(String[] args) {
+        Friends f1 = new Friends("Jimbo",20,"basketball");                 //创建friend （object）
+
+        Myself m1 = new Myself();                                          //创建我自己（object）
+
+        m1.setFriends(f1);                                                  //set 自己attribute的值，其中 Friend 那个 attribute就用我们刚刚创建好的object就可以
+        m1.setName("clary");
+        m1.setAge(19);
+
+        System.out.println(f1.toString());
+        System.out.println(m1.toString());
+    }
+}
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+运行之后的结果：
+
+Friends{name='Jimbo', age=20, habit='basketball'}                                                        //friend object
+Myself{name='clary', age=19, friends=Friends{name='Jimbo', age=20, habit='basketball'}}                  //myself object
+
+**********************************************************************************************************************************************************************************************
+
+九）接口在开发中的作用
+
+接口是完全抽象的，
+有了接口就可以随意插入接口，或者拔出接口
+可插拔表示扩展里很强，不是焊接死的。
+
+主板和内存条中间有插槽，这个插槽就是接口，内存条坏了，可以重新买一个换下来。这叫做高扩展性
+
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+分析：
+中午去饭馆吃饭？这个过程中有接口吗？
+
+接口是抽象的。
+
+菜单是一个接口。（菜单上有一个抽象的照片：西红柿炒鸡蛋）
+
+谁面向接口调用？（顾客面向菜单点菜：调用接口）
+
+谁负责实现接口？（后台的厨师负责把西红柿鸡蛋做好！是接口的实现者。）
+
+这个接口有什么用呢？
+“顾客”不需要找后厨，“后厨”不用找“顾客”，他们之间完全依靠这个抽象的“菜单”来沟通。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 
 
