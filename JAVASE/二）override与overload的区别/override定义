@@ -1,0 +1,12 @@
+重写（override）：
+****需要有继承关系才能够重写,子类重写父类的方法！****
+1. method的名字必须相同
+2. 参数parameter必须完全相同
+3. 修饰符：范围可以扩大     public > protected > default > private
+例：如果父类是private，子类只能比它大
+4. 抛出的异常：范围，可以被缩小，但不能扩大
+
+static 属于 class /final 这几个都不能override
+
+为什么需要重写：
+1.父类的功能，子类不一定需要，或者不一定满足！
