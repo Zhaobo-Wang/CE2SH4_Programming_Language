@@ -1,8 +1,44 @@
 Array:
 
 1. Java 语言中的数组是一种引用数据类型。不属于基本数据类型
+
 2. Array 实际上是一个容器，可以同时容纳多个数据
+
 3. Array当中可以存储“基本数据类型”的数据，也可以存储“引用数据类型”的数据
+
 4. Array因为是引用类型，所以array对象是在堆内存当中
-5. Array 在内存方面
+
+6. array当中如果存储的是 “java 对象” 的话，实际上存储的是对象的 “内存地址”
+
+7. array一旦创建，在java中规定，长度不可变
+
+8. 所有array对象都有length属性，用来获得元素的个数
+
+9. array类型统一：int类型只能存储int类型
+
+10. array中存储数据它的内存地址是连续的
+
+11. 所有array都是拿第一个小方框的内存地址用来将整个array的内存地址
+12. 定义一个1d array：
+int[] array1;
+double[] array2;
+boolean[] array3;
+String[] array4;
+Object[] array5;
+
+语法格式：
+静态初始化1d array：
+int[] array = {100,2100,300,55};
+___________________________________________________
+动态初始化 1d array：
+int[] array = new int[5]; // 这里的5表示array的个数
+//每个元素默认值为0
+String[] names = new String[6];
+//初始化6个长度的string类型数组，每个元素默认值为null
+
+
+Array的优缺点？
+优点：查询/查找/检索某个index的元素时效率极高。可以说是查询效率最高的一个数据结构。
+
+
 
