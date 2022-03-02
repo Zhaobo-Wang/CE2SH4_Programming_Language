@@ -1,0 +1,14 @@
+.App {
+  padding: 40px 80px 40px 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.middle {
+  margin-top: 50px;
+}
+
+
+.bottom {
+  margin-top: 50px;
+}
